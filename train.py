@@ -1,8 +1,9 @@
 import numpy as np
 from typing import List, Tuple
 
-class GradientDescent:
+class GradientDescent():
 
+    @staticmethod
     def evaluate(data: List[Tuple[np.ndarray, np.ndarray]], model, loss_func) -> List[float]:
         """
         function to evaluate the test data
@@ -30,6 +31,7 @@ class GradientDescent:
             losses.append(loss)
         return losses
     
+    @staticmethod
     def update(data: List[Tuple[np.ndarray, np.ndarray]], model, loss_func, learning_rate: float) -> List[float]:
         """
         function to calculate gradients and perform weight updates
@@ -67,3 +69,21 @@ class GradientDescent:
             model.b_o -= learning_rate * grads["b_o"]
         
         return losses
+    
+    def gradient_descent(self, train_data, test_data, model, loss_func, epochs, learning_rate):
+        valid_losses = self.evaluate(test_data, model, loss_func)
+        print("Initial Validation: " + str(np.mean(valid_losses)))
+        
+        train_loss_arr = []
+        valid_loss_arr = []
+        
+        for epoch in range(epochs):
+            train_losses = self.update(train_data, model, loss_func, learning_rate)
+            valid_losses = self.evaluate(test_data, model, loss_func)
+            
+            print("Epoch " + str(epoch) + ": " + str(np.mean(train_losses)) + " Train Loss, " + str(np.mean(valid_losses)) + " Valid Loss") 
+            
+            train_loss_arr.append(np.mean(train_losses))
+            valid_loss_arr.append(np.mean(valid_losses))
+            
+        return train_loss_arr, valid_loss_arr
