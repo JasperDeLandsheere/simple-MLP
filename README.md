@@ -27,9 +27,9 @@ Next, I will show some visualizations of the results I got, they are pretty simp
 ![tanh](figures/tanh.png)
 ## MSE loss
 ![ReLUloss](figures/ReLUloss.png)
-![sigmoidloss](figures/sigmoidloss.png)
-![tanhloss](figures/tanhloss.png)
+![sigmoidloss](figures/Sigmoidloss.png)
+![tanhloss](figures/TanHloss.png)
 ## Predictions
 ![ReLUpred](figures/ReLUpred.png)
-![sigmoidpred](figures/sigmoidpred.png)
-![tanhpred](figures/tanhpred.png)
+![sigmoidpred](figures/Sigmoidpred.png)
+![tanhpred](figures/TanHpred.png)
